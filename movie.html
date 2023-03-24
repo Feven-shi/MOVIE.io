@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>MOVIE DASHBORD</title>
+</head> 
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@700&family=Rubik+Iso&family=Shantell+Sans:ital,wght@1,300&display=swap');
+ @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"); 
+body{
+    background-color: #212529;
+    font-family: 'Dancing Script', cursive;
+} 
+.navbar {
+    background-color: #222028;
+}
+#top ul{
+    margin-left: 25%;
+ }
+#top ul li a {
+    margin: 10px;
+ } 
+#top form ::-webkit-input-placeholder {
+    color: white;
+ } 
+ .dropdown-menu li a{
+    color: white;
+ }
+ .dropdown-menu li a:hover {
+    color: #f9ab00;
+    border-left: 3px solid #f9ab00;
+ }
+ #header_title{
+    padding-top: 35px;
+    color:white;
+   
+ }  
+ #new{
+    color:#f9ab00;
+ }
+.card_cover {
+    overflow: hidden;
+    background-color: #222028;
+} 
+.movie_list{
+    margin-top: 35px;
+}
+
+.cards{
+    margin: 10px;
+} 
+.card{
+    margin: 5.5px;
+}  
+
+.links{
+    text-decoration: none;
+    color: #f9ab00;
+} 
+#topics li{
+    margin: 10px;   
+}  
+#topics li a {
+    text-decoration: none;
+    color: white;
+}  
+#home {
+    border-bottom: 2.5px solid #f9ab00;
+    padding-bottom: 10px;
+} 
+
+#new_release {
+   
+    border-bottom: 2.5px solid #f9ab00;
+    padding-bottom: 10px;
+}
+
+#home::after{
+    color: white;
+}
+#topics li a:hover{
+    color: #f9ab00;
+    border-bottom: 2.5px solid #f9ab00;
+    padding-bottom: 10px;
+}  
+
+.card_cover img:hover {
+    transform: scale(1.1);
+}  
+
+.vote {
+    border: 2px solid #29b474;
+    border-radius: 50%; 
+    color: white;
+    text-align: center;
+    font-size: 10px; 
+    padding: 10px;
+    width: fit-content;
+    margin-top: 15px;
+}
+.rel_date {
+    font-weight: 100;
+    color:white;
+} 
+/* .carousel-item img {
+    width: 550px;
+    height: auto;  
+    vertical-align: middle;
+} */
+</style>
+
+
+<body>
+     <nav class="navbar navbar-expand-lg sticky-top ">
+        <div class="container-fluid" id="top">
+          <a class="navbar-brand" href="#">
+            <img src="http://hotflix.volkovdesign.com/main/img/logo.svg" alt="brand">
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-ui-radios-grid" style="color: #f9ab00;"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" style="color: #f9ab00;" aria-current="page" id="home" href="#">Home</a>
+              </li>
+           
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Catalog
+                </a>
+                <ul class="dropdown-menu" style="background-color: #222028;" >
+                  <li><a class="dropdown-item " 
+                    style=" background-color: #222028;" href="#">Action</a></li>
+                  <li><a class="dropdown-item "
+                    style=" background-color: #222028;" href="#">Comedy</a></li>
+                  <li><a class="dropdown-item "
+                    style=" background-color: #222028;" href="#">Romance</a></li>
+                  <li><a class="dropdown-item "
+                    style=" background-color: #222028;" href="#">Drama</a></li>
+                </ul>
+              </li> 
+
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#"> Pricing Plan</a>
+              </li>
+           
+              <li class="nav-item dropdown ">
+                <a class="nav-link text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                </a>
+                <ul class="dropdown-menu " style="background-color: #222028;">
+                  <li><a class="dropdown-item " 
+                    style=" background-color: #222028;" href="#">About</a></li>
+                  <li><a class="dropdown-item " 
+                    style=" background-color: #222028;" href="#">Profile</a></li>
+                  <li><a class="dropdown-item " 
+                    style=" background-color: #222028;" href="#">contacts</a></li>
+                  <li><a class="dropdown-item " 
+                    style=" background-color: #222028;" href="#">privacy policy</a></li>
+                </ul>
+              </li> 
+            </ul>
+            <form class="d-flex search" role="search">
+              <input class="form-control bg-dark  " style="border: 1px solid #f9ab00; color: white;"
+               type="search" placeholder="Search" aria-label="Search"> 
+               <span class="input-group-append">
+                <button class="btn btn-outline-warning  border-start-0 border rounded-pill ms-n3" type="button">
+                    <i class="bi bi-binoculars-fill"></i>
+                </button>    
+            </span>  
+            </form>
+          </div>
+        </div>
+      </nav> 
+
+
+      <div class="container-fluid"
+       style="background-image: linear-gradient(rgba(0, 0, 0, 0.727),rgba(0, 0, 0, 0.7)) ,url('http://hotflix.volkovdesign.com/main/img/home/home__bg.jpg');">
+        <header>
+            <h1 id="header_title">
+                <span id="new"> COMING </span> 
+                <span style="font-weight: 100; " >SOON ! </span> 
+            </h1>
+
+            <br> <br> 
+            <div id="carouselExample" >
+               
+                <div class="carousel-in" >
+                  <div class=" active row" >
+                    <div class="carousel-it col-lg-6">                     
+                        <img class="" src="https://cdn.dribbble.com/users/529449/screenshots/4851203/atm_neon_dribbble.jpg" alt="error fetching image">
+                    </div>
+                     <p class="description text-white col-lg-4"> </p>
+                    <div class="col-lg-2">
+                        <button class="btn" type="button" style="color: #f9ab00; font-size: 3rem;" id="carousel_next">
+                            <i class="bi bi-arrow-bar-right"></i>
+                         </button>
+                    </div>
+                    </div>
+                </div> 
+
+                
+                
+              </div>
+
+            
+        </header>  
+      </div> 
+
+      <div class="container-fluid" >
+        <div class="header">
+            <h3>New Items</h3>
+                <div class="container-fluid" >
+                    <ul class=" " id="topics" style="display: flex;">
+                      <li >
+                       <span class="active"> 
+                        <a href="#" style="color: #f9ab00;" id="new_release">TV SERIES</a> </span>
+                      </li>
+                   
+                      <li >
+                        <a class="" id="trending" href="#"> In-Theaters</a>
+                      </li>
+        
+                      <li >
+                        <a class="" id="genre" href="#">BoxOffice-All-Time </a>
+                      </li> 
+
+                      <li >
+                        <a class="" href="#"> CARTOONS </a>
+                      </li>
+                  </div>
+              
+        </div> 
+
+        <div class="movie_list">
+        <div class="cards row justify-content-center tv-s">
+            
+
+        </div> 
+
+        </div>  
+
+        <div class="searched_content"> 
+            <h1 style="text-align: center; margin-top: 5%; color: white;">Similar contents</h1> <br> <br>
+            <div class="cards row justify-content-center search_results">
+                
+
+            </div>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+    <script>
+
+        const inputword = document.querySelector('.search input')
+        const btn = document.querySelector('.input-group-append button')
+        const search_result = document.querySelector('.search_results')
+        
+        async function get_movies_by_search(search_term) {
+                    const res = await fetch(`https://imdb-api.com/en/API/SearchMovie/k_9em3xlv9/${search_term}`)
+                    const resdata = await res.json() 
+                    //console.log(resdata.results)
+                    return resdata.results
+                }
+        
+                btn.addEventListener('click', add_searched_movie_to_dom)
+        
+            var rate_of_id = []
+           
+
+       async function get_rate_by_id(movie_obj){
+        var movie_id = 0;
+        for( var i=0; i<=movie_obj.length; i++){ //i<4 
+          //console.log(movie_obj[i].id) 
+          movie_id = movie_obj[i].id
+          const res = await fetch(`https://imdb-api.com/API/Ratings/k_9em3xlv9/${movie_id}`)
+          .then(res => res.json())
+        
+          //console.log(res.filmAffinity)
+          //return res.filmAffinity;
+          rate_of_id[i] = res.filmAffinity; 
+
+          
+        } }
+        
+            async function add_searched_movie_to_dom() {
+                const data = await get_movies_by_search(inputword.value)
+                 //console.log(data)
+
+                var rate  = await get_rate_by_id(data)
+                var i = 0;
+
+                search_result.innerHTML = data.map(fun => {
+                    //console.log(fun)
+                    return `
+                    ${i++}
+                    <div class="col-lg-4 col-sm-12 card" style="width: 12rem; background-color: #222028;" id="${fun.id}"> 
+                        <span class="vote" > ${rate_of_id[i]}  </span> 
+                        <div class="card_cover">
+                             <br>
+                            <img src="${fun.image}"  class="card-img-top" alt="sorry">
+                            <div class="card-body">
+                                <p style="color: white;">${fun.title} </p>
+                                <span class="rel_date" > ${fun.description} </span>
+                            </div>
+                            </div>  
+                        </div> 
+                    `  
+                    
+                })
+        }  
+
+        
+        
+        
+        const next_btn = document.getElementById('carousel_next');
+        const carousel = document.querySelector(' .carousel-it');
+        const carousel_des = document.querySelector(' .description')
+        
+         var nxt = 0;
+        next_btn.addEventListener('click',get_movies)
+        
+        function get_movies(){
+            fetch(`https://imdb-api.com/en/API/ComingSoon/k_638i26ft`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.items)
+                carousel.innerHTML = `<img src="${data.items[nxt].image}" class="img-fluid d-block w-50 rounded" alt="error fetching image">`
+                carousel_des.innerHTML ='Title  :  ' + data.items[nxt].title + '<br> <br>'+ 'genres : '+ data.items[nxt].genres + '<br> <br>' + 'Release state : ' + data.items[nxt].releaseState+ '<br> <br>' + 'Star List : ' + data.items[nxt].stars ; 
+                ++nxt
+            })
+        }
+        
+        var trailer_of_id = []
+        async function trailer_of_movies(tvarray){
+            //console.log(tvarray)
+            var tvid = 0
+            for(var i=0; i<=4; i++){
+                tvid = tvarray[i].id
+
+          const trailer = await fetch(`https://imdb-api.com/API/Trailer/k_638i26ft/${tvid}`)
+          .then( trailer => trailer.json())
+          //console.log(trailer.linkEmbed)
+          trailer_of_id[i] = trailer.linkEmbed;
+            }
+        }
+        
+        
+        var num = 1;
+        const cardimg = document.querySelector('.card_cover img')
+        const cardbody = document.querySelector('.card-body a')
+        
+        
+        const tvseries = document.querySelector(' .tv-s')
+        var tvarray = 0;
+        window.addEventListener('load', tv) 
+        
+        function tv(){
+            var n = 0;
+            fetch(`https://imdb-api.com/en/API/MostPopularTVs/k_638i26ft`)
+            .then(res => res.json())
+            .then(async data =>  {
+                //console.log(data.items)
+                tvarray = data.items;
+                var tvarr = await trailer_of_movies(tvarray)
+                //console.log(trailer_of_id)
+                tvseries.innerHTML = tvarray.map( z => {
+                    //console.log(trailer_of_id)
+                   return `
+                   <div class="col-lg-2 col-sm-6 card" style="width: 12rem; background-color: #222028;">
+                    <span class="vote" > ${z.imDbRating}</span>     
+                    <div class="card_cover">
+                <img src="${z.image}" class="card-img-top" data-toggle="modal" data-target="#exampleModal" alt="...">
+            <!-- Modal -->
+        <div class="modal fade" id="exampleModal" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">TRAILER</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               ${trailer_of_id[n]}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+             <div class="card-body">
+                <span style="color: white">${z.title} </span>
+            </div>
+            </div>
+        </div> 
+                    ${++n}
+                    `  
+                })
+            })
+        } 
+        
+        
+        
+        
+            const tbtn = document.getElementById('trending');
+            var trendarray = 0;
+        
+            tbtn.addEventListener('click', pop);
+            
+            function pop(){
+                tbtn.setAttribute('class','active')
+                tbtn.setAttribute('style','color: #f9ab00')
+        
+        
+                fetch(`https://imdb-api.com/en/API/InTheaters/k_638i26ft`)
+                .then(res => res.json())
+                .then(data => {
+                    //console.log(data.items)
+                    //console.log(data.items.image)
+                    trendarray = data.items
+                    tvseries.innerHTML = trendarray.map( y => {
+                        return `
+                        <div class="col-lg-2 col-sm-6 card" style="width: 12rem; background-color: #222028;">
+                            <span class="vote" > ${y.imDbRating}</span>
+                        <div class="card_cover">
+                        <img src="${y.image}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                         <span style="color: white">${y.title} </span>
+                         <span style="color: white">${y.genres} </span>
+                        </div>
+                        </div>
+                        </div>
+                     `
+                    })
+                })
+            }
+        
+        
+        // const genre = document.getElementById('genre');
+        // var genrearray = 0;
+        // var a = 0;
+        // genre.addEventListener('click', genrelist)
+        
+        // function genrelist(){ 
+        //         genre.setAttribute('class','active')
+        //         genre.setAttribute('style','color: #f9ab00')
+        
+        //     fetch`https://api.themoviedb.org/3/genre/movie/list?api_key=e80658b2f97f11ab80a80051432d1240&language=en-US`
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         genrearray = data.genres;
+        //         //console.log(genrearray)
+         
+        //         tvseries.innerHTML = 'Genre-Title  :  ' + '<br>' + genrearray
+              
+        //     })
+        // }
+              </script>
+        
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>        
+        </body>
+        </html> 
+
+
+        

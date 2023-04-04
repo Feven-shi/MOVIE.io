@@ -266,7 +266,7 @@ body{
         const search_result = document.querySelector('.search_results')
         
         async function get_movies_by_search(search_term) {
-                    const res = await fetch(`https://imdb-api.com/en/API/SearchMovie/k_9em3xlv9/${search_term}`)
+                    const res = await fetch(`https://imdb-api.com/en/API/SearchMovie/k_o6x8629c/${search_term}`)
                     const resdata = await res.json() 
                     //console.log(resdata.results)
                     return resdata.results
@@ -282,11 +282,10 @@ body{
         for( var i=0; i<movie_obj.length; i++){ //i<4 
           //console.log(movie_obj[i].id) 
           movie_id = movie_obj[i].id
-          const res = await fetch(`https://imdb-api.com/API/Ratings/k_9em3xlv9/${movie_id}`)
+          const res = await fetch(`https://imdb-api.com/API/Ratings/k_o6x8629c/${movie_id}`)
           .then(res => res.json())
         
           //console.log(res.filmAffinity)
-          //return res.filmAffinity;
           rate_of_id[i] = res.filmAffinity; 
 
           
@@ -300,7 +299,7 @@ body{
                 var i = 0;
 
                 search_result.innerHTML = data.map(fun => {
-                    //console.log(fun)
+                    console.log(fun)
                     return `
                     ${i++}
                     <div class="col-lg-4 col-sm-12 card" style="width: 12rem; background-color: #222028;" id="${fun.id}"> 
@@ -330,10 +329,10 @@ body{
         next_btn.addEventListener('click',get_movies)
         
         function get_movies(){
-            fetch(`https://imdb-api.com/en/API/ComingSoon/k_638i26ft`)
+            fetch(`https://imdb-api.com/en/API/ComingSoon/k_o6x8629c`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.items)
+                //console.log(data.items)
                 carousel.innerHTML = `<img src="${data.items[nxt].image}" class="img-fluid d-block w-50 rounded" alt="error fetching image">`
                 carousel_des.innerHTML ='Title  :  ' + data.items[nxt].title + '<br> <br>'+ 'genres : '+ data.items[nxt].genres + '<br> <br>' + 'Release state : ' + data.items[nxt].releaseState+ '<br> <br>' + 'Star List : ' + data.items[nxt].stars ; 
                 ++nxt
@@ -347,7 +346,7 @@ body{
             for(var i=0; i<=4; i++){
                 tvid = tvarray[i].id
 
-          const trailer = await fetch(`https://imdb-api.com/API/Trailer/k_638i26ft/${tvid}`)
+          const trailer = await fetch(`https://imdb-api.com/API/Trailer/k_o6x8629c/${tvid}`)
           .then( trailer => trailer.json())
           //console.log(trailer.linkEmbed)
           trailer_of_id[i] = trailer.linkEmbed;
@@ -366,7 +365,7 @@ body{
         
         function tv(){
             var n = 0;
-            fetch(`https://imdb-api.com/en/API/MostPopularTVs/k_638i26ft`)
+            fetch(`https://imdb-api.com/en/API/MostPopularTVs/k_o6x8629c`)
             .then(res => res.json())
             .then(async data =>  {
                 //console.log(data.items)
@@ -383,7 +382,7 @@ body{
             <!-- Modal -->
         <div class="modal fade" id="exampleModal" role="dialog"  aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="background-color: #222028;">
             <div class="modal-header">
                 <h5 class="modal-title" style="color: white;t" id="exampleModalLongTitle">TRAILER</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -423,7 +422,7 @@ body{
                 tbtn.setAttribute('style','color: #f9ab00')
         
         
-                fetch(`https://imdb-api.com/en/API/InTheaters/k_638i26ft`)
+                fetch(`https://imdb-api.com/en/API/InTheaters/k_o6x8629c`)
                 .then(res => res.json())
                 .then(data => {
                     //console.log(data.items)
@@ -447,25 +446,7 @@ body{
             }
         
         
-        // const genre = document.getElementById('genre');
-        // var genrearray = 0;
-        // var a = 0;
-        // genre.addEventListener('click', genrelist)
         
-        // function genrelist(){ 
-        //         genre.setAttribute('class','active')
-        //         genre.setAttribute('style','color: #f9ab00')
-        
-        //     fetch`https://api.themoviedb.org/3/genre/movie/list?api_key=e80658b2f97f11ab80a80051432d1240&language=en-US`
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         genrearray = data.genres;
-        //         //console.log(genrearray)
-         
-        //         tvseries.innerHTML = 'Genre-Title  :  ' + '<br>' + genrearray
-              
-        //     })
-        // }
               </script>
         
         
